@@ -54,6 +54,29 @@
   rg.resize(numSegmentation);
 }
 
+void OverSegmenter::setSegmentCriteriaParams(int minClusterSize,
+                                             int maxClusterSize,
+                                             float overlapThreshold)
+{
+  this->minClusterSize = minClusterSize;
+  this->maxClusterSize = maxClusterSize;
+
+  this->overlapThreshold = overlapThreshold;
+
+  this->isSetup = true;
+}
+
+void OverSegmenter::setRegionGrowingParams(float minNormalThreshold,
+                                           float maxNormalThreshold,
+                                           float curvatureThreshold,
+                                           int neighborNumber,
+                                           int numSegmentation)
+{
+  this->minNormalThreshold = minNormalThreshold;
+  this->maxNormalThreshold = maxNormalThreshold;
+  this->curvatureThreshold = curvatureThreshold;
+}
+
 void OverSegmenter::setInputClouds(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud,
                                    pcl::PointCloud<pcl::Normal>::Ptr normals)
 {

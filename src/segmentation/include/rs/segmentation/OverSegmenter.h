@@ -73,14 +73,15 @@ public:
 
   ~OverSegmenter();
 
-  void initialize(float minNormalThreshold,
-                  float maxNormalThreshold,
-                  float curvatureThreshold,
-                  float overlapThreshold,
-                  int minClusterSize,
-                  int maxClusterSize,
-                  int neighborNumber,
-                  int numSegmentation);
+  void setSegmentCriteriaParams(int minClusterSize,
+                                int maxClusterSize,
+                                float overlapThreshold);
+
+  void setRegionGrowingParams(float minNormalThreshold,
+                              float maxNormalThreshold,
+                              float curvatureThreshold,
+                              int neighborNumber,
+                              int numSegmentation);
 
   void setInputClouds(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud,
                       pcl::PointCloud<pcl::Normal>::Ptr normals);
